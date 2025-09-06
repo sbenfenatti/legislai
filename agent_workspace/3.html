@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passo 3: A Solução Proposta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(125deg, #0f172a, #0d9488, #083344, #1e293b, #0f172a);
+            background-size: 400% 400%;
+            animation: liquidGradient 20s ease infinite;
+            overflow-x: hidden;
+        }
+        @keyframes liquidGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .form-textarea {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+            transition: all 0.2s ease-in-out;
+        }
+        .form-textarea:focus { background: rgba(0, 0, 0, 0.4); border-color: rgba(34, 211, 238, 0.5); --tw-ring-color: rgba(34, 211, 238, 0.5); }
+        .btn-glow {
+            background: #06b6d4;
+            background: linear-gradient(45deg, #0891b2, #22d3ee);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px 0 rgba(14, 165, 233, 0.4);
+        }
+        .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px 0 rgba(14, 165, 233, 0.6); }
+        .btn-secondary { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.3s ease; }
+        .btn-secondary:hover { background: rgba(0, 0, 0, 0.3); border-color: rgba(255, 255, 255, 0.25); }
+        .progress-bar-bg { background-color: rgba(0,0,0,0.3); }
+        .progress-bar-fill { background-color: #22d3ee; transition: width 0.5s ease-in-out; }
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen">
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight">Plataforma de Criação Legislativa</h1>
+            <p class="text-cyan-200 mt-2 text-lg font-semibold">Juntos para servir</p>
+        </header>
+
+        <main>
+            <div class="glass-card p-8 md:p-10">
+                <!-- Barra de Progresso -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-cyan-200">Passo 3 de 5</span>
+                    </div>
+                    <div class="w-full progress-bar-bg rounded-full h-2">
+                        <div class="progress-bar-fill h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- Conteúdo do Passo 3 -->
+                <h2 class="text-3xl font-bold text-white mb-2">A Solução Proposta</h2>
+                <p class="text-cyan-200 mb-8">Descreva como seu projeto resolverá os problemas e quais resultados você espera alcançar.</p>
+                
+                <div class="space-y-8 mt-10">
+                    <!-- Solução Proposta -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <h3 class="text-xl font-bold text-white">Solução Proposta</h3>
+                        </div>
+                        <div class="pl-9">
+                            <textarea id="solucao" rows="5" class="form-textarea mt-2 block w-full rounded-lg shadow-sm sm:text-sm" placeholder="Ex: Implementar um sistema de IA para otimizar a agenda das UBS, prever picos de demanda e enviar lembretes inteligentes para reduzir o absenteísmo.">Implementar um sistema de Inteligência Artificial para otimizar o agendamento de consultas e exames na rede pública de saúde. A plataforma irá analisar dados de demanda para prever picos de atendimento, gerenciar filas de espera de forma dinâmica e automatizar a confirmação de presença dos pacientes via canais digitais.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Resultados Esperados -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                            <h3 class="text-xl font-bold text-white">Resultados Esperados (Metas)</h3>
+                        </div>
+                        <div class="pl-9">
+                            <textarea id="resultados" rows="4" class="form-textarea mt-2 block w-full rounded-lg shadow-sm sm:text-sm" placeholder="Ex: Reduzir o tempo de espera em 30%, diminuir o absenteísmo em 15%...">- Redução de 30% no tempo médio de espera para consultas especializadas.
+- Diminuição de 15% na taxa de absenteísmo.
+- Otimização do uso de recursos humanos e de infraestrutura nas UBS.
+- Aumento da satisfação do cidadão com os serviços de saúde.</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Esboço dos Artigos -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+                            <h3 class="text-xl font-bold text-white">Esboço dos Artigos Principais</h3>
+                        </div>
+                        <div class="pl-9">
+                            <textarea id="artigos" rows="5" class="form-textarea mt-2 block w-full rounded-lg shadow-sm sm:text-sm" placeholder="Ex: Art. 1º - Fica instituído o programa 'Saúde Digital MG'. Art. 2º - O programa utilizará IA para...">Art. 1º - Fica instituído, no âmbito do Estado de Minas Gerais, o Programa de Otimização da Saúde Pública (PRO-SAÚDE DIGITAL).
+Art. 2º - O Poder Executivo fica autorizado a implementar e regulamentar o uso de sistemas baseados em inteligência artificial para a gestão do agendamento na rede pública de saúde.
+Art. 3º - As despesas decorrentes da execução desta Lei correrão por conta de dotações orçamentárias próprias, suplementadas se necessário.</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões de Navegação -->
+                <div class="flex justify-between mt-12 pt-8 border-t border-white/10">
+                    <button class="btn-secondary inline-flex items-center py-2 px-6 rounded-lg font-semibold">Voltar</button>
+                    <button class="btn-glow inline-flex items-center py-3 px-10 rounded-lg text-white font-semibold">Gerar Rascunho do Projeto</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

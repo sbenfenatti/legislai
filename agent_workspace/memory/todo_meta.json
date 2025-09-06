@@ -1,0 +1,41 @@
+{
+  "todos": {
+    "Coordinator": {
+      "1": {
+        "id": "1",
+        "content": "Reestruturar categorias das bases de dados",
+        "details": "Atualizar sistema para as 5 categorias corretas:\n1. OFICIAIS - Máximo de APIs gov possível + visualizações\n2. REDES DIGITAIS - Análise de tendências sociais\n3. ACADÊMICOS - Artigos Qualis B2+ com IA\n4. NOTÍCIAS - Feeds por espectro político\n5. BUSCA GERAL - Tipo Google",
+        "status": "pending",
+        "priority": "high"
+      },
+      "2": {
+        "id": "2",
+        "content": "Implementar integração com APIs oficiais brasileiras",
+        "details": "Conectar com o maior número possível de APIs:\n- DataSUS, IBGE, Portal da Transparência\n- TCU, TSE, STF, Câmara, Senado\n- INEP, INCRA, ANVISA, etc.\nGerar gráficos e tabelas para dados brutos",
+        "status": "pending",
+        "priority": "high"
+      },
+      "3": {
+        "id": "3",
+        "content": "Desenvolver sistema de análise de redes sociais",
+        "details": "Implementar análise de:\n- Twitter, Instagram, TikTok, Reddit\n- Hashtags e tendências\n- Google Trends, YouTube\n- Sentiment analysis",
+        "status": "pending",
+        "priority": "high"
+      },
+      "4": {
+        "id": "4",
+        "content": "Sistema de busca acadêmica inteligente",
+        "details": "Integrar com:\n- Repositórios acadêmicos (Scielo, PubMed)\n- Filtro Qualis B2+\n- Análise por IA dos artigos\n- Apresentar: Título, Abstract, DOI",
+        "status": "pending",
+        "priority": "medium"
+      },
+      "5": {
+        "id": "5",
+        "content": "Agregador de notícias segmentado",
+        "details": "Organizar fontes por:\n- Mídia hegemônica\n- Mídia independente (direita)\n- Mídia independente (esquerda)\n- Fontes internacionais",
+        "status": "pending",
+        "priority": "medium"
+      }
+    }
+  }
+}
