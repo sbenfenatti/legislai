@@ -6,7 +6,7 @@ Backend com integração de APIs governamentais
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse, Response
 from contextlib import asynccontextmanager
 import uvicorn
 from fastapi.staticfiles import StaticFiles
@@ -99,8 +99,12 @@ if V2_AVAILABLE:
 # Servir os HTMLs
 app.mount("/web", StaticFiles(directory=".", html=True), name="web")
 
-@app.get("/")
-async def root():
+@app.get("/", include_in_schema=False)
+async def root_redirect():
+    return RedirectResponse(url="/web/1.html")
+
+@app.get("/meta")
+async def meta():
     return {
         "message": f"Bem-vindo ao {settings.app_name}",
         "version": "1.2.0",
