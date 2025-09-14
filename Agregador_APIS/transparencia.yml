@@ -1,0 +1,262 @@
+metadata:
+  name: "Sistema de Buscas APIs Oficiais BR"
+  version: "1.0.4-corrigido"
+  description: "Sistema integrado de buscas utilizando exclusivamente APIs oficiais do governo brasileiro"
+  author: "Sérgio"
+  created_date: "2025-09-09"
+  last_updated: "2025-09-09"
+
+system:
+  environment: "development"
+  debug: true
+  log_level: "INFO"
+  timeout: 30
+  max_retries: 3
+  rate_limit: 100
+  cache_enabled: true
+  cache_ttl: 3600
+
+apis:
+  portal_transparencia:
+    name: "Portal da Transparência"
+    base_url: "https://api.portaldatransparencia.gov.br/api-de-dados"
+    enabled: true
+    token_required: true
+    token_header: "chave-api-dados"
+    endpoints:
+      - path: "/viagens"
+        method: "GET"
+        description: "Consulta viagens por período"
+        parameters: ["dataInicio", "dataFim", "pagina", "itensPorPagina"]
+      - path: "/viagens/{id}"
+        method: "GET"
+        description: "Consulta uma viagem pelo ID"
+        parameters: ["id"]
+      - path: "/viagens-por-cpf"
+        method: "GET"
+        description: "Consulta viagens por CPF"
+        parameters: ["cpf", "dataInicio", "dataFim"]
+      - path: "/imoveis"
+        method: "GET"
+        description: "Consulta relação de imóveis"
+        parameters: ["pagina", "itensPorPagina"]
+      - path: "/situacao-imovel"
+        method: "GET"
+        description: "Consulta situações dos imóveis funcionais"
+      - path: "/permissionarios"
+        method: "GET"
+        description: "Consulta relação de ocupantes"
+      - path: "/servidores"
+        method: "GET"
+        description: "Consulta todos servidores do Poder Executivo"
+        parameters: ["pagina", "itensPorPagina"]
+      - path: "/servidores/{id}"
+        method: "GET"
+        description: "Consulta um servidor pelo ID"
+        parameters: ["id"]
+      - path: "/servidores/remuneracao"
+        method: "GET"
+        description: "Consulta remunerações de um servidor pelo CPF ou ID e mês/ano"
+        parameters: ["cpf", "id", "mes", "ano"]
+      - path: "/servidores/por-orgao"
+        method: "GET"
+        description: "Consulta de servidores por órgão"
+        parameters: ["codigoOrgao", "mes", "ano", "pagina", "itensPorPagina"]
+      - path: "/servidores/funcoes-e-cargos"
+        method: "GET"
+        description: "Consulta funções e cargos de confiança"
+      - path: "/peps"
+        method: "GET"
+        description: "Consulta PEPs"
+        parameters: ["nome", "cpfCnpj"]
+      - path: "/seguro-defeso-por-municipio"
+        method: "GET"
+        description: "Consulta registros Seguro Defeso por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/seguro-defeso-codigo"
+        method: "GET"
+        description: "Consulta Seguro Defeso por CPF/NIS"
+        parameters: ["cpfOuNis", "mes", "ano"]
+      - path: "/seguro-defeso-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta Seguro Defeso dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/safra-por-municipio"
+        method: "GET"
+        description: "Consulta Garantia-Safra por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/safra-codigo-por-cpf-ou-nis"
+        method: "GET"
+        description: "Consulta Garantia-Safra por CPF/NIS"
+        parameters: ["cpfOuNis", "mes", "ano"]
+      - path: "/safra-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta Garantia-Safra dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/peti-por-municipio"
+        method: "GET"
+        description: "Consulta Programa de Erradicação do Trabalho Infantil por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/peti-por-cpf-ou-nis"
+        method: "GET"
+        description: "Consulta PETI por CPF/NIS"
+        parameters: ["cpfOuNis", "mes", "ano"]
+      - path: "/peti-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta PETI dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/novo-bolsa-familia-sacado-por-nis"
+        method: "GET"
+        description: "Consulta Bolsa Família sacado por NIS"
+        parameters: ["nis", "mes", "ano"]
+      - path: "/novo-bolsa-familia-sacado-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta Bolsa Família sacado dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/novo-bolsa-familia-por-municipio"
+        method: "GET"
+        description: "Consulta Bolsa Família por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/bpc-por-municipio"
+        method: "GET"
+        description: "Consulta Benefício de Prestação Continuada por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/bpc-por-cpf-ou-nis"
+        method: "GET"
+        description: "Consulta BPC por CPF/NIS"
+        parameters: ["cpfOuNis", "mes", "ano"]
+      - path: "/bpc-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta BPC dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/bolsa-familia-sacado-por-nis"
+        method: "GET"
+        description: "Consulta parcelas sacadas do Bolsa Família por NIS"
+        parameters: ["nis", "mes", "ano"]
+      - path: "/bolsa-familia-sacado-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta parcelas sacadas dos beneficiários do Bolsa Família por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/bolsa-familia-por-municipio"
+        method: "GET"
+        description: "Consulta parcelas do Bolsa Família por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/bolsa-familia-disponivel-por-cpf-ou-nis"
+        method: "GET"
+        description: "Consulta parcelas disponíveis do Bolsa Família por CPF/NIS"
+        parameters: ["cpfOuNis", "mes", "ano"]
+      - path: "/bolsa-familia-disponivel-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta parcelas disponíveis do Bolsa Família para beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/auxilio-emergencial-por-municipio"
+        method: "GET"
+        description: "Consulta registros de auxílio emergencial por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/auxilio-emergencial-por-cpf-ou-nis"
+        method: "GET"
+        description: "Consulta auxílio emergencial por CPF/NIS"
+        parameters: ["cpfOuNis", "mes", "ano"]
+      - path: "/auxilio-emergencial-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta auxílio emergencial dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/auxilio-brasil-sacado-por-nis"
+        method: "GET"
+        description: "Consulta Auxílio Brasil sacado por NIS"
+        parameters: ["nis", "mes", "ano"]
+      - path: "/auxilio-brasil-sacado-beneficiario-por-municipio"
+        method: "GET"
+        description: "Consulta Auxílio Brasil sacado dos beneficiários por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/auxilio-brasil-por-municipio"
+        method: "GET"
+        description: "Consulta Auxílio Brasil por município"
+        parameters: ["codigoMunicipio", "mes", "ano"]
+      - path: "/renuncias-valor"
+        method: "GET"
+        description: "Consulta valores renunciados"
+      - path: "/renuncias-fiscais-empresas-imunes-isentas"
+        method: "GET"
+        description: "Consulta pessoas jurídicas imunes e isentas"
+      - path: "/renuncias-fiscais-empresas-habilitadas-beneficios-fiscais"
+        method: "GET"
+        description: "Consulta pessoas jurídicas habilitadas a benefícios fiscais"
+      - path: "/pessoa-juridica"
+        method: "GET"
+        description: "Consulta pessoas jurídicas"
+      - path: "/pessoa-fisica"
+        method: "GET"
+        description: "Consulta pessoas físicas"
+      - path: "/orgaos-siape"
+        method: "GET"
+        description: "Consulta órgãos SIAPE"
+      - path: "/orgaos-siafi"
+        method: "GET"
+        description: "Consulta órgãos SIAFI"
+      - path: "/notas-fiscais"
+        method: "GET"
+        description: "Consulta todas as notas fiscais eletrônicas"
+      - path: "/notas-fiscais-por-chave"
+        method: "GET"
+        description: "Consulta uma nota fiscal eletrônica pela chave"
+        parameters: ["chave"]
+      - path: "/licitacoes"
+        method: "GET"
+        description: "Consulta todas as licitações"
+      - path: "/licitacoes/{id}"
+        method: "GET"
+        description: "Consulta licitação pelo ID"
+        parameters: ["id"]
+      - path: "/licitacoes/ugs"
+        method: "GET"
+        description: "Consulta Unidades Gestoras que realizaram licitações"
+      - path: "/licitacoes/por-ug-modalidade-numero"
+        method: "GET"
+        description: "Consulta licitação por UG, modalidade e número"
+        parameters: ["codigoUg","modalidade","numero"]
+      - path: "/licitacoes/por-processo"
+        method: "GET"
+        description: "Consulta licitação por número de processo"
+        parameters: ["numeroProcesso"]
+      - path: "/licitacoes/participantes"
+        method: "GET"
+        description: "Consulta participantes de uma licitação"
+        parameters: ["idLicitacao"]
+      - path: "/licitacoes/modalidades"
+        method: "GET"
+        description: "Consulta modalidades de licitação"
+      - path: "/licitacoes/itens-licitados"
+        method: "GET"
+        description: "Consulta itens licitados pelo ID da licitação"
+        parameters: ["idLicitacao"]
+      - path: "/licitacoes/empenhos"
+        method: "GET"
+        description: "Consulta empenhos de uma licitação"
+        parameters: ["idLicitacao"]
+      - path: "/licitacoes/contratos-relacionados-licitacao"
+        method: "GET"
+        description: "Consulta contratos relacionados a uma licitação"
+        parameters: ["idLicitacao"]
+      - path: "/emendas"
+        method: "GET"
+        description: "Consulta emendas parlamentares"
+      - path: "/emendas/documentos/{codigo}"
+        method: "GET"
+        description: "Consulta documentos de emenda parlamentar"
+        parameters: ["codigo"]
+      - path: "/despesas/tipo-transferencia"
+        method: "GET"
+        description: "Consulta tipos de transferência"
+      - path: "/despesas/recursos-recebidos"
+        method: "GET"
+        description: "Consulta recursos recebidos por favorecido"
+      - path: "/despesas/por-orgao"
+        method: "GET"
+        description: "Consulta despesas por órgão"
+        parameters: ["codigoOrgao","dataInicio","dataFim","pagina","itensPorPagina"]
+      - path: "/despesas/por-funcional-programatica"
+        method: "GET"
+        description: "Consulta despesas por classificação funcional programática"
+        parameters: ["codigoFuncional","dataInicio","dataFim"]  
+      # … demais endpoints conforme documentação até finalizar todos  

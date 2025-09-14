@@ -1,0 +1,21 @@
+# samples.yaml (opcional)
+# Preencha com amostras reais para endpoints que exigem parâmetros de caminho/consulta específicos.
+codigoMunicipio: 3550308   # São Paulo (exemplo)
+siglaUf: SP
+cpf: "11131018656"         # CPF de teste (formato válido, pode não existir)
+cnpj: "00000000000191"     # CNPJ de teste (formato válido, pode não existir)
+nis: "12345678901"         # Exemplo
+cpfOuNis: "12345678901"
+id: "1"                    # Use IDs reais quando precisar testar /{id}
+codigoOrgao: "26246"
+codigoFuncional: "122"     # Exemplo
+codigoParlamentar: "1"     # Exemplo
+codigoMateria: "1"         # Exemplo
+codigoUg: "150002"
+modalidade: "Pregão"
+numero: "1"
+uf: "MG"
+ddd: "11"
+nome: "SILVA"
+chave: "NFeXXXXXXXXXXXX"   # Exemplo para notas fiscais
+moeda: "USD"
