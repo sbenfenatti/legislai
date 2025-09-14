@@ -1,2 +1,0 @@
-# Auxiliar Legislativo App Package
-
